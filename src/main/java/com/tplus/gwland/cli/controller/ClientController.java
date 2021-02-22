@@ -34,9 +34,9 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/client")
 public class ClientController {
 	 private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	 private ClientService clientService;
+	    final ClientServiceImpl clientService;
 	    
-	    private ClientRepository clientMapper;
+	    final ClientRepository clientMapper;
 	    
 	    @PostMapping("/insert")
 	    public Map<?,?> insert(@RequestBody Client c){

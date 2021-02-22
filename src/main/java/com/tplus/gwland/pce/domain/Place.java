@@ -1,32 +1,30 @@
 package com.tplus.gwland.pce.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import java.util.ArrayList;
+import java.util.List;
 
-import org.springframework.stereotype.Component;
+import javax.persistence.*;
 
-import lombok.Data;
+import com.tplus.gwland.cat.domain.Category;
+import com.tplus.gwland.rev.domain.Review;
 
-/*
-	create table places(
-		pce_num int primary key auto_increment,
-		name varchar(20),
-		address varchar(100),
-		phone_number varchar(50),
-		category varchar(20),
-		city varchar(20),
-		placeImg text
-	);
- */
-@Data
+
+@Entity
 public class Place {
-	@Id
+	@Id 
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name="pce_num") private int pceNum;
-	@Column(name="name") private String name;
+	@Column(name="pce_name") private String pceName;
 	@Column(name="address") private String address;
-	@Column(name="phoneNumber") private String phoneNumber;
-	@Column(name="category") private String category;
-	@Column(name="city") private String city;
+	@Column(name="phone_number") private String phoneNumber;
+	@Column(name="mapX") private String mapX;
+	@Column(name="mapY") private String mapY;
 	@Column(name="place_img") private String placeImg;
+	
+	@ManyToOne
+	@JoinColumn(name="cat_num")
+	private Category category;
+	
+	@OneToMany(mappedBy = "place")
+	private List<Review> reviewList = new ArrayList<>();
 }

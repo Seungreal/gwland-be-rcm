@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.tplus.gwland.cmm.domain.Messenger;
 import com.tplus.gwland.rev.domain.Review;
 import com.tplus.gwland.rev.repository.ReviewRepository;
-import com.tplus.gwland.rev.service.ReviewService;
+import com.tplus.gwland.rev.service.ReviewServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,8 +28,8 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/boards")
 public class ReviewController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	private ReviewService boardService;
-	private ReviewRepository boardMapper;
+	final ReviewServiceImpl boardService;
+	final ReviewRepository boardMapper;
 	
 	@PostMapping("")
 	public Messenger write(@RequestBody Review board) {

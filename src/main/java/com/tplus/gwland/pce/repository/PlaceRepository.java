@@ -8,16 +8,5 @@ import com.tplus.gwland.pce.domain.Place;
 
 public interface PlaceRepository {
 
-	public int insert(Place p);
-
-	public int count();
-
-	public List<Place> list();
-
-	public Place select(String pceNum);
-
-	public int delete(Place p);
-
-	public int update(Place p);
 
 }

@@ -2,22 +2,21 @@ package com.tplus.gwland.rev.repository;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.tplus.gwland.rev.domain.Review;
 
-@Repository
+
+
 public interface ReviewRepository {
 
-	public int insert(Review board);
+	public int insert(Review review);
 
 	public List<Review> select();
 
-	public Review selectById(String bdNum);
+	public Review selectById(String revNum);
 
-	public int update(Review board);
+	public int update(Review review);
 
-	public int delete(Review board);
+	public int delete(Review review);
 
 
 }
