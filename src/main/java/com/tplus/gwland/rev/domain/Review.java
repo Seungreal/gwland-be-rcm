@@ -22,7 +22,7 @@ public class Review {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Id @Column(name="rev_num")private int revNum;
 	
-	@OneToMany(mappedBy= "Review")
+	@OneToMany(mappedBy= "review")
 	private List<Recom> recom = new ArrayList<>();
 	
 	@ManyToOne

@@ -1,5 +1,5 @@
 package com.tplus.gwland.rcm.service;
 
-public class RecomService {
+public interface RecomService {
 
 }

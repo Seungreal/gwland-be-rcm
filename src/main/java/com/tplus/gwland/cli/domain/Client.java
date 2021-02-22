@@ -25,11 +25,11 @@ public class Client{
 	@Column(name="phoneNum") private String phoneNum;
 	@Column(name="regDate") private String regDate;
 	
-	@OneToMany(mappedBy = "Client")
-    private List<Review> reviews = new ArrayList<>();
+	@OneToMany(mappedBy = "client")
+    private List<Review> review = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "Client")
-    private List<Survey> surveys = new ArrayList<>();
+	@OneToMany(mappedBy = "client")
+    private List<Survey> survey = new ArrayList<>();
 }
 
 

@@ -1,14 +1,13 @@
-package com.tplus.gwland.pce.service;
-
+package com.tplus.gwland.pce.repository;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import com.tplus.gwland.cmm.domain.Pagination;
 import com.tplus.gwland.pce.domain.Place;
 
-public interface PlaceService{
+public class PlaceRepositoryImpl implements PlaceRepository{
+
 
 
 }

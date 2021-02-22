@@ -1,5 +1,5 @@
 package com.tplus.gwland.crs.service;
 
-public class CourseService {
+public interface CourseService {
 
 }
