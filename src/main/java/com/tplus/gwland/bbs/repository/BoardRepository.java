@@ -6,7 +6,8 @@ import org.springframework.stereotype.Repository;
 
 import com.tplus.gwland.bbs.domain.Board;
 
-@Repository
+
+
 public interface BoardRepository {
 
 	public int insert(Board board);

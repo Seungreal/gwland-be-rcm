@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.tplus.gwland.bbs.repository.BoardRepository;
-import com.tplus.gwland.bbs.service.BoardService;
+import com.tplus.gwland.bbs.service.BoardServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 

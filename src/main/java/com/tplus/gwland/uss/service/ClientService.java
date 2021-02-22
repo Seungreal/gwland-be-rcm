@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import com.tplus.gwland.bbs.repository.BoardRepository;
-import com.tplus.gwland.bbs.service.BoardService;
+import com.tplus.gwland.bbs.service.BoardServiceImpl;
 import com.tplus.gwland.uss.domain.Client;
 import com.tplus.gwland.uss.repository.ClientRepository;
 

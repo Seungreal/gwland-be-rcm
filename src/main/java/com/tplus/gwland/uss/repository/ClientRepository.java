@@ -7,7 +7,6 @@ import org.springframework.stereotype.Repository;
 import com.tplus.gwland.uss.domain.Client;
 
 
-@Repository
 public interface ClientRepository {
 	
 	public int insert(Client c);

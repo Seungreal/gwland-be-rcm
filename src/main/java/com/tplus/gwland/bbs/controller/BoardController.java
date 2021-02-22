@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tplus.gwland.bbs.domain.Board;
 import com.tplus.gwland.bbs.repository.BoardRepository;
-import com.tplus.gwland.bbs.service.BoardService;
+import com.tplus.gwland.bbs.service.BoardServiceImpl;
 import com.tplus.gwland.cmm.domain.Messenger;
 
 import lombok.RequiredArgsConstructor;
@@ -28,7 +28,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/boards")
 public class BoardController {
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	final BoardService boardService;
+	final BoardServiceImpl boardService;
 	final BoardRepository boardMapper;
 	
 	@PostMapping("")
