@@ -34,7 +34,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/client")
 public class ClientController {
 	 private final Logger logger = LoggerFactory.getLogger(this.getClass());
-	    final ClientService clientService;
+	    final ClientServiceImpl clientService;
 	    
 	    final ClientRepository clientMapper;
 	    

@@ -6,8 +6,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 
- 
-
 public class BorardCrawling {
 
 public static void main(String args[]) {
@@ -35,8 +33,6 @@ try {
 doc = Jsoup.connect(url).get();
 
 } catch (Exception e) {
-
-// TODO: handle exception
 
 e.printStackTrace();
 

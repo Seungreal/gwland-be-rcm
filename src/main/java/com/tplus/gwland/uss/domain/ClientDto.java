@@ -1,11 +1,22 @@
 package com.tplus.gwland.uss.domain;
 
+import javax.persistence.Column;
+import javax.persistence.Id;
+
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
+
 import lombok.Data;
 
+@Component @Lazy
 @Data
 public class ClientDto {
 	public int cliNum; 
-	public String cliId, name, gender, phoneNum, regDate;
+	private String cliId;
+	public String name; 
+	public String gender; 
+	public String phoneNum; 
+	public String regDate;
 }
 
 // 메모리에 저장

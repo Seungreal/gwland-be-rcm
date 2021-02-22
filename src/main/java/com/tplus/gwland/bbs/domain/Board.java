@@ -1,18 +1,18 @@
 package com.tplus.gwland.bbs.domain;
 
-import org.springframework.context.annotation.Lazy;
-import org.springframework.stereotype.Component;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Component
-@Data
-@AllArgsConstructor
-@Lazy
-@NoArgsConstructor
+@Entity
 public class Board {
-	private int bdNum;
-	private String content, writerId, regDate;
+	@Id private int bdNum;
+	@Column(name="content") private String content;
+	@Column(name="writer_id") private String writerId;
+	@Column(name="reg_date") private String regDate;
 }
+
+
+
+
+

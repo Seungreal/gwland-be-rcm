@@ -12,24 +12,24 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class BoardServiceImpl {
-	final BoardRepository boardMapper;
+public class BoardServiceImpl implements BoardService{
+	final BoardRepository repository;
 	
 	public int write(Board board) {
-		return boardMapper.insert(board);
+		return repository.insert(board);
 	}
 	public int list;
 	public List<Board> list(){
-		return boardMapper.select();
+		return repository.select();
 	}
 	public Board selectById(String bdNum) {
-		return boardMapper.selectById(bdNum);
+		return repository.selectById(bdNum);
 	}
 	public int update(Board board) {
-		return boardMapper.update(board);
+		return repository.update(board);
 	}
 	public int delete(Board board) {
-		return boardMapper.delete(board);
+		return repository.delete(board);
 	}
 
 }

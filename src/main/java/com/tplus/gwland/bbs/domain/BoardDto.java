@@ -1,5 +1,14 @@
 package com.tplus.gwland.bbs.domain;
 
-public class BoardDto {
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
 
+import lombok.Data;
+
+@Data @Component @Lazy
+public class BoardDto {
+	private int bdNum;
+	private String content;
+	private String writerId;
+	private String regDate;
 }

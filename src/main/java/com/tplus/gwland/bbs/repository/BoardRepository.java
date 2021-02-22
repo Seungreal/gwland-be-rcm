@@ -2,8 +2,6 @@ package com.tplus.gwland.bbs.repository;
 
 import java.util.List;
 
-import org.springframework.stereotype.Repository;
-
 import com.tplus.gwland.bbs.domain.Board;
 
 
