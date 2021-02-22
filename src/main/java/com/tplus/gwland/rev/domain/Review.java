@@ -14,6 +14,7 @@ import javax.persistence.OneToMany;
 
 import com.tplus.gwland.cli.domain.Client;
 import com.tplus.gwland.pce.domain.Place;
+import com.tplus.gwland.rcm.domain.Recom;
 
 @Entity 
 
