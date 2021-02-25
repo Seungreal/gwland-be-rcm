@@ -1,13 +1,13 @@
 spring:
     datasource:
-       url: jdbc:mariadb://mydatabase.c4h89kt7p5q1.ap-northeast-2.rds.amazonaws.com/mydatabase
-       driverClassName: org.mariadb.jdbc.Driver
-       username: demoproject
-       password: demoproject
+      url: jdbc:mariadb://mydatabase.c4h89kt7p5q1.ap-northeast-2.rds.amazonaws.com/mydatabase
+      driverClassName: org.mariadb.jdbc.Driver
+      username: demoproject
+      password: demoproject
     jpa:
         database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
         hibernate:
-            ddl-auto: create
+            ddl-auto: update
             
         # show-sql: true
         # properties:
