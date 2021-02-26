@@ -11,6 +11,7 @@ public class CrawlingSoccer {
 		 * Document 클래스 : 연결해서 얻어온 HTML 전체 문서 Element 클래스 : Document의 HTML 요소 Elements
 		 * 클래스 : Element가 모인 자료형
 		 */
+	
 		String url = "https://sports.news.naver.com/wfootball/index.nhn";
 		Document doc = null;
 		try {
