@@ -8,8 +8,9 @@ import lombok.Data;
 @Data @Component @Lazy
 public class ReviewDto {
 	private int revNum;
+	private String reviewId;
 	private String reviewTitle;
 	private String reviewContent;
-	private String starRat;
+	private float reviewStar;
 	
 }
