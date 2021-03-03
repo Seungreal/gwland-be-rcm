@@ -42,15 +42,15 @@ public class CrawlerBySele extends Proxy {
 			Document rawData = Jsoup.connect(url).timeout(10 * 1000).get();
 			Elements titles = rawData.getElementsByClass("bbsTitle");
 			Elements contents = rawData.select("b[class=bbsText]");
-			ReviewDto article = null;
+			ReviewDto review = null;
 			logger.info(" titles.size() " + titles.size());
 			for (int i = 0; i < titles.size(); i++) {
 				logger.info(" for 내부 ");
-				article = new ReviewDto();
-				article.setReviewTitle(titles.get(i).text());
-				article.setReviewContent(contents.get(i).text());
-				logger.info("리뷰 번호" + i + "번: " + article.toString());
-				artBag.add(article);
+				review = new ReviewDto();
+				review.setReviewTitle(titles.get(i).text());
+				review.setReviewContent(contents.get(i).text());
+				logger.info("리뷰 번호" + i + "번: " + review.toString());
+				artBag.add(review);
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

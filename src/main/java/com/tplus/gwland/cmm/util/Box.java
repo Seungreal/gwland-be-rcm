@@ -6,7 +6,6 @@ import java.util.Set;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import com.tplus.gwland.rev.domain.ReviewDto;
 
 @Component @Lazy
 public class Box<T> {

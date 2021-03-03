@@ -1,41 +1,65 @@
 package com.tplus.gwland.cli.service;
 
 import java.util.List;
+import java.util.Optional;
 
-import javax.inject.Inject;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
 
 import com.tplus.gwland.cli.domain.Client;
+import com.tplus.gwland.cli.domain.ClientDto;
 import com.tplus.gwland.cli.repository.ClientRepository;
-import com.tplus.gwland.rev.repository.ReviewRepository;
-import com.tplus.gwland.rev.service.ReviewServiceImpl;
+import com.tplus.gwland.cmm.service.AbstractService;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class ClientServiceImpl implements ClientService {
-	
-	final ClientRepository repository;
-	 
-	public int list;
-	
-	public int detail;
-	 
-	 public List<Client> list(){
-	  return repository.list();
-   }
-	public int delete(Client c) {
-		return repository.delete(c);
+public class ClientServiceImpl extends AbstractService<Client> implements ClientService {
+	private final ClientRepository repo;
+
+	@Override
+	public int save(Client t) {
+		return (repo.save(t) != null) ? 1 : 0;
 	}
-	public int update(Client c) {
-		return repository.update(c);
+
+	@Override
+	public int delete(Client t) {
+		repo.delete(t);
+		return (getOne(t.getCliNum()) == null) ? 1 : 0;
+	}
+
+	@Override
+	public int count() {
+		return (int) repo.count();
+	}
+
+	@Override
+	public Client getOne(int id) {
+		return repo.getOne(id);
+	}
+
+	@Override
+	public Optional<Client> findById(int id) {
+		return repo.findById(id);
+	}
+
+	@Override
+	public boolean existsById(int id) {
+		return repo.existsById(id);
+	}
+
+	@Override
+	public List<Client> findAll() {
+		return repo.findAll();
 	}
 	
-	public Client detail(String cliId){
-		  return repository.detail(cliId);
-	   }
+	@Override
+	public List<Client> findBycliAge(String cliAge) {
+		return repo.findBycliAge(cliAge);
+	}
+	
+
+	
+	
+
 }
