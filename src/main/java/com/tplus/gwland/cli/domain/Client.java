@@ -18,7 +18,7 @@ import lombok.Getter;
 //		query = "select b from client b where b.cli_name like :cliName")
 
 public class Client{
-	@Id @GeneratedValue(strategy = GenerationType.AUTO)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cli_num")private int cliNum;
 	@Column(name="cli_id") private String cliId;
 	@Column(name="cli_name") private String cliName;
@@ -32,7 +32,5 @@ public class Client{
 	@OneToMany(mappedBy = "client")
     private List<Survey> survey = new ArrayList<>();
 }
-
-
 
 // 디스크에 저장 -> 어노테이션 Entity

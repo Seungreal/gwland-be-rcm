@@ -9,8 +9,6 @@ interface IClientRepository{
 	public List<Client> findByCliName(String cliName);
 	public List<Client> findByfindByCliAge(String cliAge);
 	
-
-	
 }
 public interface ClientRepository extends JpaRepository<Client, Integer>, IClientRepository{
 	
