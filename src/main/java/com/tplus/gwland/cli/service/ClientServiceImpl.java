@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 
 import com.tplus.gwland.cli.domain.Client;
-import com.tplus.gwland.cli.domain.ClientDto;
 import com.tplus.gwland.cli.repository.ClientRepository;
 import com.tplus.gwland.cmm.service.AbstractService;
 
@@ -52,11 +51,13 @@ public class ClientServiceImpl extends AbstractService<Client> implements Client
 	public List<Client> findAll() {
 		return repo.findAll();
 	}
-	
+
 	@Override
-	public List<Client> findBycliAge(String cliAge) {
-		return repo.findBycliAge(cliAge);
+	public List<Client> findByCliAge(String cliAge) {
+		return null;
 	}
+	
+	
 	
 
 	
