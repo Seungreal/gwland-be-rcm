@@ -54,4 +54,5 @@ public class SurveyController {
 	public ResponseEntity<List<Survey>> findAll(){
 		return ResponseEntity.ok(service.findAll());
 	}
+
 }

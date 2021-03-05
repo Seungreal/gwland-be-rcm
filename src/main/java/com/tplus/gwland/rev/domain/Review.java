@@ -32,15 +32,4 @@ public class Review {
 	@ManyToOne
 	@JoinColumn(name="pce_num")
 	private Place place;
-	
-	
-	
-	
-	
-	
 }
-
-
-
-
-

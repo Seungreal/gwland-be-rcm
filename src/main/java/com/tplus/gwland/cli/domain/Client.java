@@ -25,6 +25,7 @@ public class Client{
 	@Column(name="cli_gen") private String cliGen;
 	@Column(name="cli_mail") private String cliMail;
 	@Column(name="cli_age") private String cliAge;
+
 	
 	@OneToMany(mappedBy = "client")
     private List<Review> review = new ArrayList<>();

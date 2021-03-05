@@ -12,5 +12,4 @@ interface IClientRepository{
 }
 public interface ClientRepository extends JpaRepository<Client, Integer>, IClientRepository{
 	
-	
 }

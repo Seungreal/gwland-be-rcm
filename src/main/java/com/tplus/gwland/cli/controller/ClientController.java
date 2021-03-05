@@ -14,7 +14,6 @@ import com.tplus.gwland.cli.domain.Client;
 import com.tplus.gwland.cli.service.ClientServiceImpl;
 import com.tplus.gwland.cmm.controller.AbstractController;
 
-
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -58,12 +57,5 @@ public class ClientController extends AbstractController<Client>{
 	public ResponseEntity<List<Client>> findAll() {
 		return ResponseEntity.ok(service.findAll());
 	}
-	    
 
 }
-
-
-
-
-
-

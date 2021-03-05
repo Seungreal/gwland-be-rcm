@@ -20,6 +20,7 @@ public class ClientRepositoryImpl extends QuerydslRepositorySupport
 		//this.qf = qf;
 		this.em = em;
 	}
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Client> findByCliName(String cliName) {
@@ -34,7 +35,4 @@ public class ClientRepositoryImpl extends QuerydslRepositorySupport
 				.setParameter("cliAge", cliAge)
 				.getResultList();
 	}
-	
-	
-
 }

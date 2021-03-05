@@ -56,11 +56,5 @@ public class ClientServiceImpl extends AbstractService<Client> implements Client
 	public List<Client> findByCliAge(String cliAge) {
 		return null;
 	}
-	
-	
-	
-
-	
-	
 
 }
