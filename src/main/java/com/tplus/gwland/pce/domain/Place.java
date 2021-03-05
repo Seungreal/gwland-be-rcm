@@ -12,7 +12,7 @@ import com.tplus.gwland.rev.domain.Review;
 @Entity
 public class Place {
 	@Id 
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="pce_num") private int pceNum;
 	@Column(name="pce_name") private String pceName;
 	@Column(name="address") private String address;

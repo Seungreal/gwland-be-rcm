@@ -10,10 +10,8 @@ import com.tplus.gwland.pce.domain.Place;
 @Entity
 public class Category {
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cat_num") private int catNum;
-	@Column(name="area") private String area;
-	@Column(name="tour_type") private String tourType;
 	
 	@OneToMany(mappedBy="category")
 	private List<Place> placeList = new ArrayList<>();

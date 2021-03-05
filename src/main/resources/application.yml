@@ -1,14 +1,14 @@
 spring:
   datasource:
-    url: jdbc:mariadb://mydatabase.c4h89kt7p5q1.ap-northeast-2.rds.amazonaws.com/mydatabase
+    url: jdbc:mariadb://localhost:3306/mariadb
     driverClassName: org.mariadb.jdbc.Driver
-    username: demoproject
-    password: demoproject
+    username: root
+    password: root
   jpa:
     open-in-view: false
-    generate-ddl: true
+    generate-ddl: false
     show-sql: true
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
 server:
   port: 8080
