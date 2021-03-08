@@ -1,5 +1,11 @@
 package com.tplus.gwland.svy.repository;
 
-public interface SurveyRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+
+import com.tplus.gwland.svy.domain.Survey;
+
+@Repository
+public interface SurveyRepository extends JpaRepository<Survey, Long>{
 
 }
