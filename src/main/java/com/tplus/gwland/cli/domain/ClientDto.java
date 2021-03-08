@@ -8,9 +8,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
 import lombok.Data;
+import lombok.Getter;
 
-@Component @Lazy
-@Data
+@Component @Lazy @Getter
 public class ClientDto implements UserDetails{
 	
 	private static final long serialVersionUID = 1L;
@@ -20,6 +20,11 @@ public class ClientDto implements UserDetails{
 	private String cliGen; 
 	private String cliMail; 
 	private String cliAge;
+	
+	private Collection<? extends GrantedAuthority> autoorities;
+	
+	
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		return null;
@@ -47,6 +52,15 @@ public class ClientDto implements UserDetails{
 	@Override
 	public boolean isEnabled() {
 		return false;
+	}
+	public ClientDto(long cliNum, String cliId, String cliGen, String cliAge,
+			Collection<? extends GrantedAuthority> autoorities) {
+		super();
+		this.cliNum = cliNum;
+		this.cliId = cliId;
+		this.cliGen = cliGen;
+		this.cliAge = cliAge;
+		this.autoorities = autoorities;
 	}
 
 }

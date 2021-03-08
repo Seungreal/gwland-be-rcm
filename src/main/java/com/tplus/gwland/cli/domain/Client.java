@@ -1,10 +1,11 @@
 package com.tplus.gwland.cli.domain;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
-
 
 import com.tplus.gwland.rev.domain.Review;
 import com.tplus.gwland.svy.domain.Survey;
@@ -13,9 +14,6 @@ import lombok.Getter;
 
 
 @Entity @Getter
-// @NamedQuery(
-//		name="Client.findByCliName",
-//		query = "select b from client b where b.cli_name like :cliName")
 
 public class Client{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +29,10 @@ public class Client{
 	
 	@OneToMany(mappedBy = "client")
     private List<Survey> survey = new ArrayList<>();
+	
+	@ManyToMany(fetch = FetchType.LAZY)
+	@JoinTable(name="user_roles", joinColumns = @JoinColumn(name = "cli_num"),
+		inverseJoinColumns = @JoinColumn(name="role_num"))
+	private Set<Role> roles = new HashSet<>();
 }
 
-// 디스크에 저장 -> 어노테이션 Entity
