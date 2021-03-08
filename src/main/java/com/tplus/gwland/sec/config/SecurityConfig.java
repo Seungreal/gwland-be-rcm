@@ -4,12 +4,11 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
-import com.tplus.gwland.sec.util.CustomAuthEntryPoint;
+import com.tplus.gwland.sec.util.AuthEntryPoint;
 
-
-
-public class SecurityConfig extends WebSecurityConfigurerAdapter{
+public class SecurityConfig  extends WebSecurityConfigurerAdapter{
 	private static final String[] PUBLIC_URI = {
             "/api"
     };
@@ -26,7 +25,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		.authenticated()
 		.and()
 		.exceptionHandling()
-		.authenticationEntryPoint(new CustomAuthEntryPoint());
+		.authenticationEntryPoint(new AuthEntryPoint());
 	}
-
 }

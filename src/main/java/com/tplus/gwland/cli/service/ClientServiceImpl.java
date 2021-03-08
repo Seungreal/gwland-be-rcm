@@ -3,6 +3,7 @@ package com.tplus.gwland.cli.service;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import com.tplus.gwland.cli.domain.Client;
@@ -54,6 +55,10 @@ public class ClientServiceImpl extends AbstractService<Client> implements Client
 
 	@Override
 	public List<Client> findByCliAge(String cliAge) {
+		return null;
+	}
+
+	public UserDetails loadCliById(Long cliNum) {
 		return null;
 	}
 	

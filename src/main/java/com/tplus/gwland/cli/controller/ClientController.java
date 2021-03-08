@@ -19,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/client")
+@RequestMapping("/api/client")
 
 public class ClientController extends AbstractController<Client>{
 	final ClientServiceImpl service;

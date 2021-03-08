@@ -31,7 +31,8 @@ public class Client{
     private List<Survey> survey = new ArrayList<>();
 	
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name="user_roles", joinColumns = @JoinColumn(name = "cli_num"),
+	@JoinTable(name="user_roles", 
+		joinColumns = @JoinColumn(name = "cli_num"),
 		inverseJoinColumns = @JoinColumn(name="role_num"))
 	private Set<Role> roles = new HashSet<>();
 }

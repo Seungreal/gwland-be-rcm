@@ -1,9 +1,13 @@
 package com.tplus.gwland.cli.domain;
 
 import java.util.Collection;
+import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
@@ -20,39 +24,12 @@ public class ClientDto implements UserDetails{
 	private String cliGen; 
 	private String cliMail; 
 	private String cliAge;
+	private String username; 
+	private String password;
+	
 	
 	private Collection<? extends GrantedAuthority> autoorities;
 	
-	
-	
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return null;
-	}
-	@Override
-	public String getPassword() {
-		return null;
-	}
-	@Override
-	public String getUsername() {
-		return null;
-	}
-	@Override
-	public boolean isAccountNonExpired() {
-		return false;
-	}
-	@Override
-	public boolean isAccountNonLocked() {
-		return false;
-	}
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return false;
-	}
-	@Override
-	public boolean isEnabled() {
-		return false;
-	}
 	public ClientDto(long cliNum, String cliId, String cliGen, String cliAge,
 			Collection<? extends GrantedAuthority> autoorities) {
 		super();
@@ -62,7 +39,64 @@ public class ClientDto implements UserDetails{
 		this.cliAge = cliAge;
 		this.autoorities = autoorities;
 	}
+	
+	public static ClientDto create(Client client) {
+		List<GrantedAuthority> authorities = 
+				client.getRoles().stream()
+				.map(role -> new SimpleGrantedAuthority(role.getRoleName().name()))
+				.collect(Collectors.toList());
+		return new ClientDto(client.getCliNum(), client.getCliId(), client.getCliGen(),
+				client.getCliAge(), authorities);
+	}
+	
+	
+	public boolean equals(Object o) {
+		if (this == o)
+			return true;
+		if (o == null || getClass() != o.getClass())
+			return false;
+		ClientDto that = (ClientDto) o;
+		return Objects.equals(cliNum, that.cliNum);
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(cliNum);
+	}
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return true;
+	}
+	@Override
+	public boolean isEnabled() {
+		return true;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getPassword() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public String getUsername() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
 
 }
-// 메모리에 저장
 
