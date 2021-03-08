@@ -25,32 +25,32 @@ public class ClientController extends AbstractController<Client>{
 	final ClientServiceImpl service;
 
 	@GetMapping("/save")
-	public ResponseEntity<Integer> save(Client t) {
+	public ResponseEntity<Long> save(Client t) {
 		return ResponseEntity.ok(service.save(t));
 	}
 
 	@DeleteMapping("/delete")
-	public ResponseEntity<Integer> delete(Client t) {
+	public ResponseEntity<Long> delete(Client t) {
 		return ResponseEntity.ok(service.delete(t));
 	}
 
 	@GetMapping("/count")
-	public ResponseEntity<Integer> count() {
+	public ResponseEntity<Long> count() {
 		return ResponseEntity.ok(service.count());
 	}
 
 	@GetMapping("/one/{id}")
-	public ResponseEntity<Client> getOne(int id) {
+	public ResponseEntity<Client> getOne(long id) {
 		return ResponseEntity.ok(service.getOne(id));
 	}
 
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Optional<Client>> findById(int id) {
+	public ResponseEntity<Optional<Client>> findById(long id) {
 		return ResponseEntity.ok(service.findById(id));
 	}
 
 	@GetMapping("/exists/{id}")
-	public ResponseEntity<Boolean> existsById(int id) {
+	public ResponseEntity<Boolean> existsById(long id) {
 		return ResponseEntity.ok(service.existsById(id));
 	}
 

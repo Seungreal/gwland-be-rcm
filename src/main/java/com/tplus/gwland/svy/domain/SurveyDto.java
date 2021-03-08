@@ -4,5 +4,5 @@ import lombok.Data;
 
 @Data
 public class SurveyDto {
-	private int svyNum;
+	private long svyNum;
 }

@@ -11,7 +11,7 @@ import com.tplus.gwland.pce.domain.Place;
 public class Category {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="cat_num") private int catNum;
+	@Column(name="cat_num") private long catNum;
 	@Column(name="area") private String area;
 	@Column(name="tour_type") private String tourType;
 	

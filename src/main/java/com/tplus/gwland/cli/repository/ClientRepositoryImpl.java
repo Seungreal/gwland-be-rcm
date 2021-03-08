@@ -11,7 +11,7 @@ import com.tplus.gwland.cli.domain.Client;
 
 @Repository
 public class ClientRepositoryImpl extends QuerydslRepositorySupport 
-									implements IClientRepository{
+									implements ClientCustomRepository{
 	//private final JPAQueryFactory qf;
 	private final EntityManager em;
 	

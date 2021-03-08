@@ -16,16 +16,18 @@ import com.tplus.gwland.rcm.domain.Recom;
 
 @Entity
 public class Survey {
-	@Id @Column(name="svy_num")
-	private int svyNum;
-	
+	@Id
+	@Column(name = "svy_num")
+	private long svyNum;
+
 	@ManyToOne
-	@JoinColumn(name="pce_num")
+	@JoinColumn(name = "pce_num")
 	private Place place;
+
 	@ManyToOne
-	@JoinColumn(name="cli_num")
+	@JoinColumn(name = "cli_num")
 	private Client client;
-	
+
 	@OneToMany(mappedBy = "survey")
 	private List<Recom> RecomList = new ArrayList<>();
 }

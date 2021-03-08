@@ -1,6 +1,7 @@
 package com.tplus.gwland.sec.util;
 
 import javax.servlet.http.HttpServletRequest;
+import org.springframework.security.core.Authentication;
 
 public interface AuthTokenProvider {
 	
@@ -13,10 +14,10 @@ public interface AuthTokenProvider {
  
     /***
      * 토큰 발급
-     * @param userNo 유저 No
+     * @param Authentication 이 자동 생성하는 토큰으로 발급
      * @return 토큰
      */
-    AuthToken issue(Long userNo);
+    String issue(Authentication auth);
  
     /***
      * 토큰에서 userNo 취득

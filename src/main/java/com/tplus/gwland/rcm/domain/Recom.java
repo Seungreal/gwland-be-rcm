@@ -13,7 +13,7 @@ import com.tplus.gwland.svy.domain.Survey;
 @Entity
 public class Recom {
 	@Id @Column(name="rcm_num")
-	private int rcmNum;
+	private long rcmNum;
 	
 	@ManyToOne
 	@JoinColumn(name="crs_num")

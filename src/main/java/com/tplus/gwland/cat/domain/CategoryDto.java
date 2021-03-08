@@ -8,7 +8,7 @@ import lombok.Data;
 @Data
 @Lazy
 public class CategoryDto {
-	private int catNum;
+	private long catNum;
 	private String area;
 	private String tourType;
 }

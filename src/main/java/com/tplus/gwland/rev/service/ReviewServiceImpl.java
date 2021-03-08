@@ -15,20 +15,20 @@ import lombok.RequiredArgsConstructor;
 public class ReviewServiceImpl implements ReviewService{
 	final ReviewRepository repository;
 	
-	public int write(Review review) {
+	public long write(Review review) {
 		return repository.insert(review);
 	}
-	public int list;
+	public long list;
 	public List<Review> list(){
 		return repository.select();
 	}
 	public Review selectById(String revNum) {
 		return repository.selectById(revNum);
 	}
-	public int update(Review review) {
+	public long update(Review review) {
 		return repository.update(review);
 	}
-	public int delete(Review review) {
+	public long delete(Review review) {
 		return repository.delete(review);
 	}
 

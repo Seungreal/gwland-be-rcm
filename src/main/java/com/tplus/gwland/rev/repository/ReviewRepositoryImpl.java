@@ -10,7 +10,7 @@ import com.tplus.gwland.rev.domain.Review;
 public class ReviewRepositoryImpl implements ReviewRepository{
 
 	@Override
-	public int insert(Review review) {
+	public long insert(Review review) {
 		return 0;
 	}
 
@@ -25,12 +25,12 @@ public class ReviewRepositoryImpl implements ReviewRepository{
 	}
 
 	@Override
-	public int update(Review review) {
+	public long update(Review review) {
 		return 0;
 	}
 
 	@Override
-	public int delete(Review review) {
+	public long delete(Review review) {
 		return 0;
 	}
 
