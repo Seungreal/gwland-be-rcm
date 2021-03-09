@@ -11,7 +11,6 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
-import lombok.Data;
 import lombok.Getter;
 
 @Component @Lazy @Getter
@@ -24,29 +23,32 @@ public class ClientDto implements UserDetails{
 	private String cliGen; 
 	private String cliMail; 
 	private String cliAge;
-	private String username;
 	private String password;
 	
 	
 	private Collection<? extends GrantedAuthority> autoorities;
 	public ClientDto(long cliNum, String cliId, String cliGen, String cliAge,
-			Collection<? extends GrantedAuthority> autoorities) {
-		super();
+			String cliName, String password)
+			/*
+			 * Collection<? extends GrantedAuthority> autoorities)
+			 */ 
+			{
 		this.cliNum = cliNum;
 		this.cliId = cliId;
 		this.cliGen = cliGen;
 		this.cliAge = cliAge;
-		this.autoorities = autoorities;
-		
+		this.cliName = cliName;
+		this.password = password;
+		//this.autoorities = autoorities;
 	}
 	
 	public static ClientDto create(Client client) {
-		List<GrantedAuthority> authorities = 
-				client.getRoles().stream()
-				.map(role -> new SimpleGrantedAuthority(role.getRoleName().name()))
-				.collect(Collectors.toList());
+		//List<GrantedAuthority> authorities = 
+		//		client.getRoles().stream()
+		//		.map(role -> new SimpleGrantedAuthority(role.getRoleName().name()))
+		//		.collect(Collectors.toList());
 		return new ClientDto(client.getCliNum(), client.getCliId(), client.getCliGen(),
-				client.getCliAge(), authorities);
+				client.getCliAge(),client.getCliName(),client.getCliPassword());
 	}
 	
 	public boolean equals(Object o) {
@@ -84,7 +86,10 @@ public class ClientDto implements UserDetails{
 		return null;
 	}
 
-	
+	@Override
+	public String getUsername() {
+		return null;
+	}
 
 
 }

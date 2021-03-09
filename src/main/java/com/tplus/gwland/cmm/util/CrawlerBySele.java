@@ -1,70 +1,72 @@
 package com.tplus.gwland.cmm.util;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
-import com.tplus.gwland.rev.domain.ReviewDto;
-
-import lombok.RequiredArgsConstructor;
-
-import org.jsoup.nodes.Document;
-import org.jsoup.nodes.Element;
-import org.jsoup.Jsoup;
-import org.jsoup.select.Elements;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-// @Component @RequiredArgsConstructor
-
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
+ 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import static org.openqa.selenium.support.ui.ExpectedConditions.presenceOfElementLocated;
-import org.openqa.selenium.*;
-import org.openqa.selenium.chrome.*;
-import java.time.Duration;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
-public class CrawlerBySele extends Proxy {
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+public class CrawlerBySele{
+public static void main(String[] args) {
+        
+        System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
+        
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--start-maximized");
+        
+        // WebDriver 객체 생성
+        ChromeDriver driver = new ChromeDriver( options );
+        
+        // 탭 목록 가져오기
+        List<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        
+        // 웹페이지 요청
+        driver.get("https://place.map.kakao.com/25584941?service=search_pc");
+        
+        // 웹페이지에서 글제목 가져오기
+        WebElement page1_title = driver.findElementByXPath("//*[@id=\"content\"]/div[1]/div[1]/div/h2");
+        if( page1_title != null  ) {
+            System.out.println( page1_title.getText() );            
+        }
+        // 웹페이지 소스 출력
+        //System.out.println( driver.getPageSource() );
+        
+        // 탭 종료
+        driver.close();
+        
+        
+        
+        // 두번째 탭으로 전환
+        driver.switchTo().window(tabs.get(1));
+        
+        // 웹페이지 요청
+        driver.get("https://place.map.kakao.com/25584941?service=search_pc");
+        
+        // 웹페이지에서 글제목 가져오기
+        WebElement page2_title = driver.findElementByXPath("//*[@id=\"content\"]/div[1]/div[1]/div/h1");
+        if( page1_title != null  ) {
+            System.out.println( page2_title.getText() );            
+        }
+        
+        // 웹페이지 소스 출력
+        //System.out.println( driver.getPageSource() );
+        
+        // 탭 종료
+        driver.close();
+        
+        // 5초 후에 WebDriver 종료
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            // WebDriver 종료
+            driver.quit();
+        }
+    }
 
-	// private final Vector<ReviewDto> artBag;
-	public Vector<ReviewDto> crawling(String url2) {
-		String url = "https://tickets.interpark.com/goods/20009147";
-		logger.info(" URL : " + url);
-		ArrayList<ReviewDto> artBag = new ArrayList<>();
-		try {
-			Document rawData = Jsoup.connect(url).timeout(10 * 1000).get();
-			Elements titles = rawData.getElementsByClass("bbsTitle");
-			Elements contents = rawData.select("b[class=bbsText]");
-			ReviewDto review = null;
-			logger.info(" titles.size() " + titles.size());
-			for (int i = 0; i < titles.size(); i++) {
-				logger.info(" for 내부 ");
-				review = new ReviewDto();
-				review.setRevContent(contents.get(i).text());
-				logger.info("리뷰 번호" + i + "번: " + review.toString());
-				artBag.add(review);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return null;
-	}
-
-	public static void main(String[] args) throws InterruptedException {
-		// Optional. If not specified, WebDriver searches the PATH for chromedriver.
-		System.setProperty("webdriver.chrome.driver",
-				"/usr/local/bin/chromedriver");
-
-		WebDriver driver = new ChromeDriver();
-		driver.get("https://map.naver.com/v5/entry/place/11733192?placePath=%2Freview%2Fvisitor%3Fentry=plt&c=14312298.4872012,4606368.8257065,15,0,0,0,dh");
-		System.out.println(driver.getPageSource());
-
-	}
+		
 }

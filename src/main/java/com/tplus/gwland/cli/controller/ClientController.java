@@ -21,9 +21,7 @@ import com.tplus.gwland.cmm.controller.AbstractController;
 import lombok.RequiredArgsConstructor;
 
 @RestController @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequiredArgsConstructor
-@RequestMapping("/api/client")
-
+@RequiredArgsConstructor @RequestMapping("/api/client")
 public class ClientController extends AbstractController<Client>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final ClientServiceImpl service;
@@ -37,6 +35,9 @@ public class ClientController extends AbstractController<Client>{
 	@GetMapping("/count")
 	public ResponseEntity<Long> count() {return ResponseEntity.ok(service.count());}
 
+	@GetMapping("/all")
+	public ResponseEntity<List<Client>> findAll() {return ResponseEntity.ok(service.findAll());}
+	
 	@GetMapping("/one/{id}")
 	public ResponseEntity<Client> getOne(long id) {return ResponseEntity.ok(service.getOne(id));}
 
@@ -46,7 +47,4 @@ public class ClientController extends AbstractController<Client>{
 	@GetMapping("/exists/{id}")
 	public ResponseEntity<Boolean> existsById(long id) {return ResponseEntity.ok(service.existsById(id));}
 
-	@GetMapping("/all")
-	public ResponseEntity<List<Client>> findAll() {return ResponseEntity.ok(service.findAll());}
-	    
 }

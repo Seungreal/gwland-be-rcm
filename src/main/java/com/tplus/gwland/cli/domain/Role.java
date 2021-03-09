@@ -12,12 +12,12 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Entity @Table(name = "roles") @Getter
+//@Entity
+//@Table(name = "roles") @Getter
 @NoArgsConstructor
 public class Role {
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="role_num") private long roleNum;
 	@Enumerated(EnumType.STRING)
 	private RoleName roleName;
@@ -26,7 +26,3 @@ public class Role {
 		this.roleName = roleName;
 	}
 }
-
-
-
-
