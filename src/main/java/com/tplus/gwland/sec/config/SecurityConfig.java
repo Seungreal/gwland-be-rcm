@@ -1,10 +1,8 @@
 package com.tplus.gwland.sec.config;
 
-import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
-import org.springframework.web.bind.annotation.SessionAttributes;
 
 import com.tplus.gwland.sec.util.AuthEntryPoint;
 

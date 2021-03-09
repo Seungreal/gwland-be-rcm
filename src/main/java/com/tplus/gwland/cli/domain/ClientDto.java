@@ -24,12 +24,11 @@ public class ClientDto implements UserDetails{
 	private String cliGen; 
 	private String cliMail; 
 	private String cliAge;
-	private String username; 
+	private String username;
 	private String password;
 	
 	
 	private Collection<? extends GrantedAuthority> autoorities;
-	
 	public ClientDto(long cliNum, String cliId, String cliGen, String cliAge,
 			Collection<? extends GrantedAuthority> autoorities) {
 		super();
@@ -38,6 +37,7 @@ public class ClientDto implements UserDetails{
 		this.cliGen = cliGen;
 		this.cliAge = cliAge;
 		this.autoorities = autoorities;
+		
 	}
 	
 	public static ClientDto create(Client client) {
@@ -49,7 +49,6 @@ public class ClientDto implements UserDetails{
 				client.getCliAge(), authorities);
 	}
 	
-	
 	public boolean equals(Object o) {
 		if (this == o)
 			return true;
@@ -58,6 +57,7 @@ public class ClientDto implements UserDetails{
 		ClientDto that = (ClientDto) o;
 		return Objects.equals(cliNum, that.cliNum);
 	}
+	
 	@Override
 	public int hashCode() {
 		return Objects.hash(cliNum);
@@ -81,22 +81,11 @@ public class ClientDto implements UserDetails{
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
-	@Override
-	public String getPassword() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public String getUsername() {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
+
 
 }
 

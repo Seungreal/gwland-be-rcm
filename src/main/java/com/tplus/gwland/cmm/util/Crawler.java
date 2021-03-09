@@ -23,7 +23,7 @@ public class Crawler extends Proxy {
 
 	// private final Vector<ReviewDto> artBag;
 	public Vector<ReviewDto> crawling(String url2) {
-		String url = "https://www.tripadvisor.co.kr/Restaurant_Review-g317129-d9104708-Reviews-Dancheon_Noodles-Sokcho_Gangwon_do.html";
+		String url = "https://www.3.co.kr/Restaurant_Review-g317129-d9104708-Reviews-Dancheon_Noodles-Sokcho_Gangwon_do.html";
 		ArrayList<ReviewDto> revBox = new ArrayList<>();
 		try {
 			Document rawData = Jsoup.connect(url).timeout(10 * 1000).get();
@@ -39,9 +39,8 @@ public class Crawler extends Proxy {
 			for (int i = 0; i < titles.size(); i++) {
 				review = new ReviewDto();
 				
-				review.setReviewId(cliid.get(i).text());
-				review.setReviewTitle(titles.get(i).text());
-				review.setReviewContent(contents.get(i).text());
+				review.setRevId(cliid.get(i).text());
+				review.setRevContent(contents.get(i).text());
 				logger.info("리뷰 번호 " + (i+1) + "번: " + review.toString());
 				revBox.add(review);
 			}

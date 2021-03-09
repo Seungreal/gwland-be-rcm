@@ -18,14 +18,14 @@ public class ClientServiceImpl extends AbstractService<Client> implements Client
 	private final ClientRepository repo;
 
 	@Override
-	public long save(Client t) {
-		return (repo.save(t) != null) ? 1 : 0;
+	public long save(Client c) {
+		return (repo.save(c) != null) ? 1 : 0;
 	}
 
 	@Override
-	public long delete(Client t) {
-		repo.delete(t);
-		return (getOne(t.getCliNum()) == null) ? 1 : 0;
+	public long delete(Client c) {
+		repo.delete(c);
+		return (getOne(c.getCliNum()) == null) ? 1 : 0;
 	}
 
 	@Override

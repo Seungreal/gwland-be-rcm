@@ -13,7 +13,6 @@ sourceCompatibility = '11'
 repositories {
 	mavenCentral()
 }
-
 dependencies {
 	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor"
 	compile group: 'com.h2database', name: 'h2', version: '1.4.200'
@@ -39,30 +38,15 @@ dependencies {
 	providedRuntime 'org.springframework.boot:spring-boot-starter-tomcat'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'}
-	
-	
 
 }
-test {
-	useJUnitPlatform()
-}
-def querydslSrcDir = 'src/main/generated'
-querydsl{
-	library = 'com.querydsl:querydsl-apt'
-	jpa = true
-	querydslSourcesDir = querydslSrcDir
-}
-
-compileQuerydsl{
-	options.annotationProcessorPath = configurations.querydsl
-}
-configurations {
-	querydsl.extendsFrom compileClasspath
-}
-sourceSets{
-	main{
-		java{
-			srcDirs = ['src/main/java', querydslSrcDir]
-		}
-	}
-}
+test {useJUnitPlatform()}
+def querydslSrcDir = 'src/main/generated' 
+querydsl {library = "com.querydsl:querydsl-apt"
+    	  jpa = true
+    	  querydslSourcesDir = querydslSrcDir}
+compileQuerydsl{options.annotationProcessorPath = configurations.querydsl}
+configurations { querydsl.extendsFrom compileClasspath}
+sourceSets {
+    main { java {
+            srcDirs = ['src/main/java', querydslSrcDir]}}}

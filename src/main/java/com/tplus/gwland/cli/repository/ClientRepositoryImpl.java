@@ -7,19 +7,21 @@ import javax.persistence.EntityManager;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
+import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.tplus.gwland.cli.domain.Client;
 
 @Repository
 public class ClientRepositoryImpl extends QuerydslRepositorySupport 
 									implements ClientCustomRepository{
-	//private final JPAQueryFactory qf;
+//	private final JPAQueryFactory qf;
 	private final EntityManager em;
 	
 	public ClientRepositoryImpl(EntityManager em) {
 		super(Client.class);
-		//this.qf = qf;
+//		this.qf = qf;
 		this.em = em;
 	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Client> findByCliName(String cliName) {
@@ -34,7 +36,5 @@ public class ClientRepositoryImpl extends QuerydslRepositorySupport
 				.setParameter("cliAge", cliAge)
 				.getResultList();
 	}
-	
-	
 
 }

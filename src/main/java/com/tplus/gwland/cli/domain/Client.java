@@ -13,13 +13,14 @@ import com.tplus.gwland.svy.domain.Survey;
 import lombok.Getter;
 
 
-@Entity @Getter
+@Entity @Getter @Table(name="client")
 
 public class Client{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="cli_num")private long cliNum;
 	@Column(name="cli_id") private String cliId;
 	@Column(name="cli_name") private String cliName;
+	@Column(name="cli_password") private String cliPassword;
 	@Column(name="cli_gen") private String cliGen;
 	@Column(name="cli_mail") private String cliMail;
 	@Column(name="cli_age") private String cliAge;
@@ -31,7 +32,7 @@ public class Client{
     private List<Survey> survey = new ArrayList<>();
 	
 	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name="user_roles", 
+	@JoinTable(name="client_roles", 
 		joinColumns = @JoinColumn(name = "cli_num"),
 		inverseJoinColumns = @JoinColumn(name="role_num"))
 	private Set<Role> roles = new HashSet<>();

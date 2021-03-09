@@ -47,8 +47,7 @@ public class CrawlerBySele extends Proxy {
 			for (int i = 0; i < titles.size(); i++) {
 				logger.info(" for 내부 ");
 				review = new ReviewDto();
-				review.setReviewTitle(titles.get(i).text());
-				review.setReviewContent(contents.get(i).text());
+				review.setRevContent(contents.get(i).text());
 				logger.info("리뷰 번호" + i + "번: " + review.toString());
 				artBag.add(review);
 			}

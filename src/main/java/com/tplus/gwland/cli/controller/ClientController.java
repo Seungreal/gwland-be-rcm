@@ -3,6 +3,9 @@ package com.tplus.gwland.cli.controller;
 import java.util.List;
 import java.util.Optional;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -17,53 +20,33 @@ import com.tplus.gwland.cmm.controller.AbstractController;
 
 import lombok.RequiredArgsConstructor;
 
-@RestController
+@RestController @CrossOrigin(origins = "*", allowedHeaders = "*")
 @RequiredArgsConstructor
 @RequestMapping("/api/client")
 
 public class ClientController extends AbstractController<Client>{
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final ClientServiceImpl service;
 
 	@GetMapping("/save")
-	public ResponseEntity<Long> save(Client t) {
-		return ResponseEntity.ok(service.save(t));
-	}
+	public ResponseEntity<Long> save(Client c) {return ResponseEntity.ok(service.save(c));}
 
 	@DeleteMapping("/delete")
-	public ResponseEntity<Long> delete(Client t) {
-		return ResponseEntity.ok(service.delete(t));
-	}
+	public ResponseEntity<Long> delete(Client c) {return ResponseEntity.ok(service.delete(c));}
 
 	@GetMapping("/count")
-	public ResponseEntity<Long> count() {
-		return ResponseEntity.ok(service.count());
-	}
+	public ResponseEntity<Long> count() {return ResponseEntity.ok(service.count());}
 
 	@GetMapping("/one/{id}")
-	public ResponseEntity<Client> getOne(long id) {
-		return ResponseEntity.ok(service.getOne(id));
-	}
+	public ResponseEntity<Client> getOne(long id) {return ResponseEntity.ok(service.getOne(id));}
 
 	@GetMapping("/find/{id}")
-	public ResponseEntity<Optional<Client>> findById(long id) {
-		return ResponseEntity.ok(service.findById(id));
-	}
+	public ResponseEntity<Optional<Client>> findById(long id) {return ResponseEntity.ok(service.findById(id));}
 
 	@GetMapping("/exists/{id}")
-	public ResponseEntity<Boolean> existsById(long id) {
-		return ResponseEntity.ok(service.existsById(id));
-	}
+	public ResponseEntity<Boolean> existsById(long id) {return ResponseEntity.ok(service.existsById(id));}
 
 	@GetMapping("/all")
-	public ResponseEntity<List<Client>> findAll() {
-		return ResponseEntity.ok(service.findAll());
-	}
+	public ResponseEntity<List<Client>> findAll() {return ResponseEntity.ok(service.findAll());}
 	    
-
 }
-
-
-
-
-
-
