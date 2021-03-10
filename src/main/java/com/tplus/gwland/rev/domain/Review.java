@@ -22,7 +22,6 @@ import lombok.Getter;
 @Entity @Getter @Table(name = "review")
 public class Review {
 	
-	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="rev_num")private long revNum;
 	@Column(name="rev_id")private long revId;

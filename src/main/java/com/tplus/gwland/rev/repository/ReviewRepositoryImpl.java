@@ -20,7 +20,7 @@ public class ReviewRepositoryImpl extends QuerydslRepositorySupport implements R
 	@Override
 	public List<Review> findByRevName(String revName) {
 		return em.createQuery("select b from review b where b.rev_name like :revName")
-				.setParameter("revName", revName)
-				.getResultList();
+				 .setParameter("revName", revName)
+				 .getResultList();
 	}
 }

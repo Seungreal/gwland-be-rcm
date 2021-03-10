@@ -25,7 +25,6 @@ public class ClientDto implements UserDetails{
 	private String cliAge;
 	private String password;
 	
-	
 	private Collection<? extends GrantedAuthority> autoorities;
 	public ClientDto(long cliNum, String cliId, String cliGen, String cliAge,
 			String cliName, String password)

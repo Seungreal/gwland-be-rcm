@@ -13,7 +13,7 @@ public class Box<T> {
 	public Box() {box = new HashMap<String, T>();}
 	public void clear() {box.clear();}
 	public boolean	containsKey(String key) {return box.containsKey(key);}
-	public boolean	containsValue(String value) {return box.containsValue(value);}
+	public boolean containsValue(String value) {return box.containsValue(value);}
 	public T get(String key) {return box.get(key);}
 	public HashMap<String, T> get(){return box;}
 	public boolean	isEmpty() {return box.isEmpty();}
