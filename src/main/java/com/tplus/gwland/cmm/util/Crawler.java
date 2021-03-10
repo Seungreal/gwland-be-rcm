@@ -23,18 +23,22 @@ public class Crawler extends Proxy {
 
 	// private final Vector<ReviewDto> artBag;
 	public Vector<ReviewDto> crawling(String url2) {
-		String url = "https://www.3.co.kr/Restaurant_Review-g317129-d9104708-Reviews-Dancheon_Noodles-Sokcho_Gangwon_do.html";
+		String url = "https://place.map.kakao.com/22099937";
 		ArrayList<ReviewDto> revBox = new ArrayList<>();
 		try {
 			Document rawData = Jsoup.connect(url).timeout(10 * 1000).get();
 			
-			Elements titles = rawData.select("span[class=ratingDate]");
-			Elements cliid = rawData.select("div[class=info_text pointer_cursor]");
+			Elements titles = rawData.select("p[class=txt_comment ]");
+			Elements cliid = rawData.select("div[class=comment_info]");
+			
+			
 			Elements contents = rawData.select("p[class=partial_entry]");
 			Elements starRate = rawData.select("span[class=r2Cf69qf]");
 			ReviewDto review = null;
 			
-			logger.info("리뷰갯수: " + titles.size());
+			logger.info("리뷰갯수: " + rawData.text());
+			
+			
 			logger.info("총 평균 별점: " + starRate.text());
 			for (int i = 0; i < titles.size(); i++) {
 				review = new ReviewDto();
