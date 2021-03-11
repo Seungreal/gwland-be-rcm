@@ -23,7 +23,7 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/review")
 
 public class ReviewController extends AbstractController<Review>{
-	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+	//private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final ReviewServiceImpl reviewService;
 	
 	@PostMapping("/save")

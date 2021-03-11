@@ -35,8 +35,8 @@ class reviewer {@Override public String toString() {
 	public void setRevContent(String revContent) {this.revContent = revContent;}
 	public String getRevDate() {return revDate;}
 	public void setRevDate(String revDate) {this.revDate = revDate;}
-	public String getPceNumr() {return pceNum;}
-	public void setPceNumr(String revDate) {this.revDate = revDate;}}
+	public String getPceNum() {return pceNum;}
+	public void setPceNum(String pceNum) {this.pceNum = pceNum;}}
 
 public class Crawler {
 	public static List<reviewer> placeAutoUrl(List<reviewer> revList, ChromeDriver driver, String url, String number){

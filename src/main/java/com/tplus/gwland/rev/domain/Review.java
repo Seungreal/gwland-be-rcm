@@ -24,10 +24,10 @@ public class Review {
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="rev_num")private long revNum;
-	@Column(name="rev_id")private long revId;
-	@Column(name="rev_star")private long revStar;
-	@Column(name="rev_content")private long revContent;
-	@Column(name="rev_date")private long revDate;
+	@Column(name="rev_name")private String revName;
+	@Column(name="rev_star")private String revStar;
+	@Column(name="rev_content")private String revContent;
+	@Column(name="rev_date")private String revDate;
 	
 	@OneToMany(mappedBy= "review")
 	private List<Recom> recom = new ArrayList<>();

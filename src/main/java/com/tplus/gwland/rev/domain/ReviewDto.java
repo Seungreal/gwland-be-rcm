@@ -8,7 +8,7 @@ import lombok.Data;
 @Data @Component @Lazy
 public class ReviewDto {
 	private long revNum;
-	private String revId;
+	private String revName;
 	private String revStar;
 	private String revContent;
 	private String revDate;
