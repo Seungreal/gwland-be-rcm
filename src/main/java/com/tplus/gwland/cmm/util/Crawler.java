@@ -254,5 +254,7 @@ public class Crawler {
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/345442586","176");   //화이트스테이션 호스텔
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/11203702","177");	   //황두막
 		
-		MakeCsv.createCSV(revList, "ReviewerList", "src/main/resources");}}  //csv파일 생성
+		MakeCsv.createCSV(revList, "ReviewerList", "src/main/resources"); //csv파일 생성
+																	driver.close();}} 
+		
 		
