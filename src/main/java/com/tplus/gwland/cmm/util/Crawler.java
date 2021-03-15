@@ -13,24 +13,24 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 class reviewer {@Override public String toString() {
-				return "<"+pceNum+">"+revStar+", "+revNick+ ", " 
+				return "<"+pceNum+">"+revStar+", "+revName+ ", " 
 					  	             +revContent+", "+revDate;}
-	String revStar; String revNick; String revContent; String revDate; String pceNum;
+	String revStar; String revName; String revContent; String revDate; String pceNum;
 	
 	public reviewer(
-			 String revStar, String revNick, 
+			 String revStar, String revName, 
 			 String revContent, String revDate, String pceNum){
 		super();
 		this.revStar = revStar;
-		this.revNick = revNick;
+		this.revName = revName;
 		this.revContent = revContent;
 		this.revDate = revDate;
 		this.pceNum = pceNum;}
 	
 	public String getRevStar() {return revStar;}
 	public void setRevStar(String revStar) {this.revStar = revStar;}
-	public String getRevNick() {return revNick;}
-	public void setRevNick(String revNick) {this.revNick = revNick;}
+	public String getRevName() {return revName;}
+	public void setRevName(String revName) {this.revName = revName;}
 	public String getRevContent() {return revContent;}
 	public void setRevContent(String revContent) {this.revContent = revContent;}
 	public String getRevDate() {return revDate;}
@@ -47,11 +47,11 @@ public class Crawler {
 		List<WebElement> ls = rev.findElements(By.cssSelector("li"));
 		
 		for(int i=0;i<ls.size();i++) {
-			String revNick = ls.get(i).findElement(By.className("link_user")).getText();
+			String revName = ls.get(i).findElement(By.className("link_user")).getText();
 			String revContent = ls.get(i).findElement(By.className("txt_comment")).getText();
 			String revStar = ls.get(i).findElement(By.className("num_rate")).getText();
 			String revDate = ls.get(i).findElement(By.className("time_write")).getText();
-			revList.add(new reviewer(revStar,revNick,revContent,revDate,number));
+			revList.add(new reviewer(revStar,revName,revContent,revDate,number));
 			logger.info(revList.get(revList.size()-1).toString());}
 		return revList;}
 	

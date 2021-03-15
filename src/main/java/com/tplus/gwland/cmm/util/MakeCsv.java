@@ -9,7 +9,7 @@ public class MakeCsv {
 		long resultCount = 0;
 		try{
 			BufferedWriter bw = new BufferedWriter(new FileWriter(filepath + "/" + title + ".csv", true));
-			for(reviewer dom:list) {bw.write(dom.getPceNum()+";"+dom.getRevStar()+";"+dom.getRevNick()+";"+ 
+			for(reviewer dom:list) {bw.write(dom.getPceNum()+";"+dom.getRevStar()+";"+dom.getRevName()+";"+ 
 											 dom.getRevContent()+";"+dom.getRevDate()+";");
 			bw.newLine();}
 			bw.flush();
