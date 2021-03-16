@@ -38,8 +38,8 @@
        client:
          registration:
            naver:
-             client-id: YVXpYyG8Fj7Onl5iq4rH
-             client-secret: z5t0WcuWwE
+             client-id: 
+             client-secret: 
              scope: name, email, gender, age
              client-name: Naver
              authorization-grant-type: authorization_code
