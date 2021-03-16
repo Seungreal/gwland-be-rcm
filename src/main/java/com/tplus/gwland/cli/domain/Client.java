@@ -17,12 +17,18 @@ import lombok.Getter;
 
 public class Client{
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="cli_num")private long cliNum;
+	@Column(name="cli_num") private long cliNum;
+	
 	@Column(name="cli_id") private String cliId;
+	
 	@Column(name="cli_password") private String cliPassword;
+	
 	@Column(name="cli_name") private String cliName;
+	
 	@Column(name="cli_gen") private String cliGen;
+	
 	@Column(name="cli_mail") private String cliMail;
+	
 	@Column(name="cli_age") private String cliAge;
 	
 	@OneToMany(mappedBy = "client")
