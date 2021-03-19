@@ -27,7 +27,7 @@ public class ClientDto implements UserDetails{
 	
 	private Collection<? extends GrantedAuthority> autoorities;
 	public ClientDto(long cliNum, String cliId, String cliGen, String cliAge,
-			String cliName, String password)
+			String cliName)
 			/*
 			 * Collection<? extends GrantedAuthority> autoorities)
 			 */ 
@@ -37,7 +37,6 @@ public class ClientDto implements UserDetails{
 		this.cliGen = cliGen;
 		this.cliAge = cliAge;
 		this.cliName = cliName;
-		this.password = password;
 		//this.autoorities = autoorities;
 	}
 	
@@ -47,7 +46,7 @@ public class ClientDto implements UserDetails{
 		//		.map(role -> new SimpleGrantedAuthority(role.getRoleName().name()))
 		//		.collect(Collectors.toList());
 		return new ClientDto(client.getCliNum(), client.getCliId(), client.getCliGen(),
-				client.getCliAge(),client.getCliName(),client.getCliPassword());
+				client.getCliAge(),client.getCliName());
 	}
 	
 	public boolean equals(Object o) {

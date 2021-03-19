@@ -21,8 +21,6 @@ public class Client{
 	
 	@Column(name="cli_id") private String cliId;
 	
-	@Column(name="cli_password") private String cliPassword;
-	
 	@Column(name="cli_name") private String cliName;
 	
 	@Column(name="cli_gen") private String cliGen;
@@ -36,11 +34,13 @@ public class Client{
 	
 	@OneToMany(mappedBy = "client")
     private List<Survey> survey = new ArrayList<>();
-	
+
+	}
+
 //	@ManyToMany(fetch = FetchType.LAZY)
 //	@JoinTable(name="client_roles", 
 //			   joinColumns = @JoinColumn(name = "cli_num"),
 //			   inverseJoinColumns = @JoinColumn(name="role_num"))
 //	private Set<Role> roles = new HashSet<>();
-}
+
 
