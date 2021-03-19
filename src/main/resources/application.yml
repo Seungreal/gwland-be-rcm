@@ -32,21 +32,21 @@
        client:
          registration:
            google:         
-             client-id: black
-             client-secret: black
+             client-id: 950473409812-kpe4e1cnk8tf7cifci2e762o8ao3inja.apps.googleusercontent.com
+             client-secret: BQhnfWymas-kYQeqMqlQayQQ
              scope: email, profile
                     
            naver:
-             client-id: black
-             client-secret: black
+             client-id: YVXpYyG8Fj7Onl5iq4rH
+             client-secret: z5t0WcuWwE
              scope: name, email, gender, age
              client-name: Naver
              authorization-grant-type: authorization_code
              redirect-uri: http://localhost:8080/login/oauth2/code/naver
              
            kakao:
-             client-id: black
-             client-secret: black
+             client-id: ca1c0a8a90108fe5bf42c19e001329ab
+             client-secret: qMBMP9qNmtn0RB1m0nMRqXFwef0HoTjb
              scope: profile
              client-name: Kakao
              client-authentication-method: POST
