@@ -22,8 +22,6 @@ public class PrincipalDetailsService implements UserDetailsService{
 			return null;
 		}else {
 			return new PrincipalDetails(user);
-		}
-		
-	}
+		}}
 
 }
