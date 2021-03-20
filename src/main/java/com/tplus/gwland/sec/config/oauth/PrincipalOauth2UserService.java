@@ -28,7 +28,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
 	@Override
 	public OAuth2User loadUser(OAuth2UserRequest userRequest) throws OAuth2AuthenticationException {
-		OAuth2User oAuth2User = super.loadUser(userRequest); // google의 회원 프로필 조회
+		OAuth2User oAuth2User = super.loadUser(userRequest); 
 		System.out.println("userRequest clientRegistration : " + userRequest.getClientRegistration());
 		System.out.println("oAuth2User : " + oAuth2User);
 	
@@ -37,7 +37,6 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 
 	private OAuth2User processOAuth2User(OAuth2UserRequest userRequest, OAuth2User oAuth2User) {
 
-		// Attribute를 파싱해서 공통 객체로 묶는다. 관리가 편함.
 		OAuth2UserInfo oAuth2UserInfo = null;
 		if (userRequest.getClientRegistration().getRegistrationId().equals("google")) {
 			System.out.println("구글 로그인 요청");
