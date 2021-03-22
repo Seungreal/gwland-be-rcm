@@ -15,10 +15,6 @@ public class GoogleUserInfo implements OAuth2UserInfo{
         return (String) attributes.get("sub");
     }
 
-    @Override
-    public String getName() {
-        return (String) attributes.get("name");
-    }
 
     @Override
     public String getEmail() {
@@ -36,6 +32,11 @@ public class GoogleUserInfo implements OAuth2UserInfo{
 	@Override
 	public String getGender() {
 		return (String) attributes.get("gender");
+	}
+
+	@Override
+	public String getUsername() {
+		return (String)attributes.get("name");
 	}
 
 }

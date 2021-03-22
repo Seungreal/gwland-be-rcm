@@ -21,6 +21,4 @@ public class PrincipalDetailsService implements UserDetailsService{
 		if(user == null) {
 			return null;
 		}else {
-			return new PrincipalDetails(user);
-			
-		}}}
+			return new PrincipalDetails(user);}}}

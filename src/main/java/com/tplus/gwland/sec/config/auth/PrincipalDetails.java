@@ -15,7 +15,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 	private static final long serialVersionUID = 1L;
 	private User user;
 	private Map<String, Object> attributes;
-
+	
 	// 일반 시큐리티 로그인시 사용
 	public PrincipalDetails(User user) {
 		this.user = user;
@@ -33,8 +33,15 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 	public String getAge() {
 		return user.getAge();
 	}
+	public void setAge(String age){
+		this.user.setAge(age);
+	}
+	
 	public String getGender() {
 		return user.getGender();
+	}
+	public void setGender(String gender) {
+		this.user.setGender(gender);
 	}
 
 	@Override
@@ -83,7 +90,7 @@ public class PrincipalDetails implements UserDetails, OAuth2User {
 	// User의 PrimaryKey
 	@Override
 	public String getName() {
-		return user.getId()+"";
+		return user.getNum()+"";
 	}
 	
 	
