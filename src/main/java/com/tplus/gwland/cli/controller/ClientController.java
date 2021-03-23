@@ -20,8 +20,11 @@ import com.tplus.gwland.cmm.controller.AbstractController;
 
 import lombok.RequiredArgsConstructor;
 
-@RestController @CrossOrigin(origins = "*", allowedHeaders = "*")
-@RequiredArgsConstructor @RequestMapping("/api/client")
+@RestController 
+@CrossOrigin(origins = "*", allowedHeaders = "*")
+@RequiredArgsConstructor 
+@RequestMapping("/api/client")
+
 public class ClientController extends AbstractController<Client>{
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
 	final ClientServiceImpl service;

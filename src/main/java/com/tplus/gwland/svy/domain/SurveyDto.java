@@ -4,12 +4,12 @@ import lombok.Data;
 
 @Data
 public class SurveyDto {
-	private long svyNum;
+	private int svyNum;
 	private String gender;
-	private String ageGroup;
+	private String age;
 	private String season;
-	private String numberPeople;
-	private String day;
+	private String partner;
+	private String duration;
 	private String location;
 	private String theme;
 }

@@ -23,21 +23,25 @@ import lombok.Getter;
 public class Survey {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id @Column(name="svy_num")
-	private long svyNum;
+	private int svyNum;
 	@Column
 	private String gender;
-	@Column(name="age_group")
-	private String ageGroup;
+	@Column(name="age")
+	private String age;
 	@Column
 	private String season;
-	@Column(name="number_people")
-	private String numberPeople;
 	@Column
-	private String day;
+	private String partner;
+	@Column
+	private String duration;
 	@Column
 	private String location;
 	@Column
-	private String theme;
+	private String theme1;
+	@Column
+	private String theme2;
+	@Column
+	private String theme3;
 	
 	@ManyToOne
 	@JoinColumn(name="pce_num")
@@ -48,4 +52,5 @@ public class Survey {
 	
 	@OneToMany(mappedBy = "survey",fetch = FetchType.EAGER)
 	private List<Recom> RecomList = new ArrayList<>();
+	
 }

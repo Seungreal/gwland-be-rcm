@@ -7,7 +7,6 @@ import javax.persistence.EntityManager;
 import org.springframework.data.jpa.repository.support.QuerydslRepositorySupport;
 import org.springframework.stereotype.Repository;
 
-import com.querydsl.jpa.impl.JPAQueryFactory;
 import com.tplus.gwland.cat.domain.Category;
 
 @Repository

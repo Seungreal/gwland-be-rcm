@@ -13,30 +13,29 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tplus.gwland.svy.domain.Survey;
-import com.tplus.gwland.svy.domain.SurveyDto;
 import com.tplus.gwland.svy.service.SurveyServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 @RequestMapping("/survey")
 public class SurveyController {
 	final SurveyServiceImpl service;
 	
 	@PostMapping("/save")
-	public ResponseEntity<Long> save(@RequestBody Survey s){
-		System.out.println(s.getGender()+','+s.getAgeGroup()+','+s.getSeason()+','+s.getNumberPeople()+','+s.getDay());
+	public ResponseEntity<Integer> save(@RequestBody Survey s){
 		return ResponseEntity.ok(service.save(s));
 	}
 	
 	@DeleteMapping("/delete")
-	public ResponseEntity<Long> delete(@RequestBody Survey s){
+	public ResponseEntity<Integer> delete(@RequestBody Survey s){
 		return ResponseEntity.ok(service.delete(s));
 	}
 	
 	@GetMapping("/count")
-	public ResponseEntity<Long> count(){
+	public ResponseEntity<Integer> count(){
 		return ResponseEntity.ok(service.count());
 	}
 	
@@ -52,6 +51,7 @@ public class SurveyController {
 	
 	@GetMapping("/all")
 	public ResponseEntity<List<Survey>> findAll(){
+		System.out.println("진입");
 		return ResponseEntity.ok(service.findAll());
 	}
 
