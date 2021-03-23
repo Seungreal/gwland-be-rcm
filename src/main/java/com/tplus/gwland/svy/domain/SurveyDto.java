@@ -6,10 +6,10 @@ import lombok.Data;
 public class SurveyDto {
 	private int svyNum;
 	private String gender;
-	private String ageGroup;
+	private String age;
 	private String season;
-	private String numberPeople;
-	private String day;
+	private String partner;
+	private String duration;
 	private String location;
 	private String theme;
 }

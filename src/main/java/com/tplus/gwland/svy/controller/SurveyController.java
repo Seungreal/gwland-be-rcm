@@ -20,13 +20,13 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
+@CrossOrigin("*")
 @RequestMapping("/survey")
 public class SurveyController {
 	final SurveyServiceImpl service;
 	
 	@PostMapping("/save")
 	public ResponseEntity<Integer> save(@RequestBody Survey s){
-		System.out.println(s.getGender()+','+s.getAgeGroup()+','+s.getSeason()+','+s.getNumberPeople()+','+s.getDay());
 		return ResponseEntity.ok(service.save(s));
 	}
 	
@@ -52,6 +52,7 @@ public class SurveyController {
 	
 	@GetMapping("/all")
 	public ResponseEntity<List<Survey>> findAll(){
+		System.out.println("진입");
 		return ResponseEntity.ok(service.findAll());
 	}
 

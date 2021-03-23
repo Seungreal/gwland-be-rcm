@@ -16,7 +16,9 @@ import lombok.RequiredArgsConstructor;
 public class SurveyServiceImpl implements SurveyService{
 	private final SurveyRepository repo;
 	
-	public int save(Survey s) {return repo.save(s)!=null?1:0;}
+	public int save(Survey s) {
+		return repo.save(s)!=null?1:0;
+	}
 	public Survey getOne(int id) {return repo.getOne(id);}
 	public int delete(Survey s) {
 		repo.delete(s);

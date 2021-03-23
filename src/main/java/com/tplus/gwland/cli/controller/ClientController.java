@@ -18,14 +18,16 @@ import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/client")
+@RequestMapping("/api/client")
 
 public class ClientController extends AbstractController<Client>{
 	final ClientServiceImpl service;
 
 	@GetMapping("/save")
 	public ResponseEntity<Integer> save(Client t) {
-		return ResponseEntity.ok(service.save(t));
+		System.out.println(t);
+		return ResponseEntity.ok(1);
+		//return ResponseEntity.ok(service.save(t));
 	}
 
 	@DeleteMapping("/delete")
