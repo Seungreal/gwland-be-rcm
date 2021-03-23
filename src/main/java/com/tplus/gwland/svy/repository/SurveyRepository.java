@@ -1,3 +1,4 @@
+
 package com.tplus.gwland.svy.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;

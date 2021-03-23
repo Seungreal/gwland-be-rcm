@@ -12,99 +12,46 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-class reviewer {
-	String revStar; 
-	String revNick; 
-	String revContent; 
-	String revDate; 
-	String pceNum;
+class reviewer {@Override public String toString() {
+				return "<"+pceNum+">"+revStar+", "+revName+ ", " 
+					  	             +revContent+", "+revDate;}
+	String revStar; String revName; String revContent; String revDate; String pceNum;
 	
 	public reviewer(
-			 String revStar, String revNick, 
+			 String revStar, String revName, 
 			 String revContent, String revDate, String pceNum){
 		super();
 		this.revStar = revStar;
-		this.revNick = revNick;
+		this.revName = revName;
 		this.revContent = revContent;
 		this.revDate = revDate;
 		this.pceNum = pceNum;}
 	
-	
+	public String getRevStar() {return revStar;}
+	public void setRevStar(String revStar) {this.revStar = revStar;}
+	public String getRevName() {return revName;}
+	public void setRevName(String revName) {this.revName = revName;}
+	public String getRevContent() {return revContent;}
+	public void setRevContent(String revContent) {this.revContent = revContent;}
+	public String getRevDate() {return revDate;}
+	public void setRevDate(String revDate) {this.revDate = revDate;}
+	public String getPceNum() {return pceNum;}
+	public void setPceNum(String pceNum) {this.pceNum = pceNum;}}
 
-public String getRevStar() {
-		return revStar;
-	}
-
-
-
-	public void setRevStar(String revStar) {
-		this.revStar = revStar;
-	}
-
-
-
-	public String getRevNick() {
-		return revNick;
-	}
-
-
-
-	public void setRevNick(String revNick) {
-		this.revNick = revNick;
-	}
-
-
-
-	public String getRevContent() {
-		return revContent;
-	}
-
-
-
-	public void setRevContent(String revContent) {
-		this.revContent = revContent;
-	}
-
-
-
-	public String getRevDate() {
-		return revDate;
-	}
-
-
-
-	public void setRevDate(String revDate) {
-		this.revDate = revDate;
-	}
-
-
-
-	public String getPceNum() {
-		return pceNum;
-	}
-
-
-
-	public void setPceNum(String pceNum) {
-		this.pceNum = pceNum;
-	}
-
-
-}
-public class Crawler2 {
+public class Crawler {
 	public static List<reviewer> placeAutoUrl(List<reviewer> revList, ChromeDriver driver, String url, String number){
-		Logger logger = LoggerFactory.getLogger(Crawler2.class);
+		Logger logger = LoggerFactory.getLogger(Crawler.class);
 		driver.get(url);
 		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
 		WebElement rev = driver.findElementByClassName("list_evaluation");
 		List<WebElement> ls = rev.findElements(By.cssSelector("li"));
 		
 		for(int i=0;i<ls.size();i++) {
-			String revNick = ls.get(i).findElement(By.className("link_user")).getText();
+			String revName = ls.get(i).findElement(By.className("link_user")).getText();
 			String revContent = ls.get(i).findElement(By.className("txt_comment")).getText();
 			String revStar = ls.get(i).findElement(By.className("num_rate")).getText();
 			String revDate = ls.get(i).findElement(By.className("time_write")).getText();
-			revList.add(new reviewer(revStar,revNick,revContent,revDate,number));
+			revList.add(new reviewer(revStar,revName,revContent,revDate,number));
 			logger.info(revList.get(revList.size()-1).toString());}
 		return revList;}
 	
@@ -127,7 +74,7 @@ public class Crawler2 {
 	   	       148. 청초호 둘레길 */
 	   	       
 	public static void main(String[] args) {
-		System.setProperty("webdriver.chrome.driver", "src/main/resources/static/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", "/usr/local/bin/chromedriver");
 		ChromeDriver driver = new ChromeDriver();
 		List<reviewer> revList = new ArrayList<>();
 			
@@ -136,14 +83,14 @@ public class Crawler2 {
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/10924317","3");      //함흥막국수
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/25622898","4");      //88생선구이
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/1903622145","5");    //YAT(와이에이티)
-//																    	      //예외처리(6,7)
+																    	      //예외처리(6,7)
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/10116103","8");      //갈릴리횟집
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/8141879","9");       //감나무집 감자옹심이
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/11041736","10");     //계조암
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/8201549","11");      //광림모텔
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/25625906","12");     //국립산악박물관
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/8216097","13");      //굿모닝가족호텔
-////양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/1364813679","14");   //궁중해장국본가
+//양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/1364813679","14");   //궁중해장국본가
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/8206191","15");      //금강굴
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/11891822","16");     //낙천회관
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/8250511","17");      //노블모텔
@@ -199,7 +146,7 @@ public class Crawler2 {
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/7939479","67");      //설악프라자컨트리클럽
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/1327493089","68");   //설악힐호텔
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/7952590","69");      //속초 등대전망대
-		placeAutoUrl(revList, driver,"https://place.map.kakao.com/649182629","70");    //속초 바다낚시
+		placeAutoUrl(revList, driver,"https://place.map.kakao.com/649182629","70");    //속초 바다낚시   		
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/8376588","71");      //설악해맞이공원
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/27351432","72");     //얼라이브 하트(Alive Heart)
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/12697671","73");     //엑스포타워
@@ -212,7 +159,7 @@ public class Crawler2 {
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/12797187","80");     //속초관광수산시장
 																		      //예외처리(81)
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/7952759","82");      //속초문화원
-		placeAutoUrl(revList, driver,"https://place.map.kakao.com/10543534","83");     //속초문화회관
+		placeAutoUrl(revList, driver,"https://place.map.kakao.com/10543534","83");     //속초문화회관			
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/374570243","84");    //속초비치호스텔
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/24751102","85");     //속초스파랜드
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/9158247","86");      //속초시립박물관
@@ -227,9 +174,9 @@ public class Crawler2 {
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/11126744","96");     //송월파크
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/797562421","97");    //스머프하우스
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/10543253","98");     //시골이모순두부
-		placeAutoUrl(revList, driver,"https://place.map.kakao.com/10532834","99");     //시골할머니
+		placeAutoUrl(revList, driver,"https://place.map.kakao.com/10532834","99");     //시골할머니		
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/11435044","100");    //시나브로 모텔
-		placeAutoUrl(revList, driver,"https://place.map.kakao.com/1098447501","101");  //신다신식당
+		placeAutoUrl(revList, driver,"https://place.map.kakao.com/1098447501","101");  //신다신식당     
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/1098447501","102");  //신다신식당
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/7993485","103"); 	  //아남프라자
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/11495403","104");    //아바이마을 갯배
@@ -238,7 +185,7 @@ public class Crawler2 {
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/978709031","107");   //양반댁함흥냉면
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/7994126","108");     //에이스모텔
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/24857116","109");    //연호리조트
-		placeAutoUrl(revList, driver,"https://place.map.kakao.com/7999903","110");     //영금정
+		placeAutoUrl(revList, driver,"https://place.map.kakao.com/7999903","110");     //영금정           	  
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/8011765","111");     //영랑호 화랑도 체험관광단지
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/8008145","112");     //영랑호
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/10650417","113");    //영랑호리조트
@@ -250,7 +197,7 @@ public class Crawler2 {
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/8021355","119");     //외옹치항
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/8016468","120");     //외옹치해변
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/9366982","121");     //위너스모텔
-		placeAutoUrl(revList, driver,"https://place.map.kakao.com/1131080213","122");  //위드유
+		placeAutoUrl(revList, driver,"https://place.map.kakao.com/1131080213","122");  //위드유			
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/10688023","123");    //육담폭포
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/24267521","124");    //일출봉횟집
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/13606733","125");    //장사마을
@@ -270,7 +217,7 @@ public class Crawler2 {
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/8092408","139");     //척산온천장
 																			  //예외처리(140)
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/12924037","141");    //척산온천휴양촌
-		placeAutoUrl(revList, driver,"https://place.map.kakao.com/18682831","142");    //척산족욕공원
+		placeAutoUrl(revList, driver,"https://place.map.kakao.com/18682831","142");    //척산족욕공원		
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/10762824","143");    //천당폭포
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/8091417","144");     //천불동계곡
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/8088618","145");     //청대산
@@ -286,7 +233,7 @@ public class Crawler2 {
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/11755111","155");    //카페뮤토
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/10493578","156");    //켄싱턴호텔 설악
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/8102174","157");     //코리아횟집
-		placeAutoUrl(revList, driver,"https://place.map.kakao.com/10901906","158");    //텔콘채록지
+		placeAutoUrl(revList, driver,"https://place.map.kakao.com/10901906","158");    //텔콘채록지			
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/25035970","159");    //토왕성폭포
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/11620926","160");    //평강막국수
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/8133251","161");     //학무정
@@ -302,10 +249,12 @@ public class Crawler2 {
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/17101514","171");    //현대수리조트
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/761418386","172");   //호텔 느낌
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/12868448","173");    //호텔 마레몬스
-		placeAutoUrl(revList, driver,"https://place.map.kakao.com/25815063","174");    //호텔 아마란스
+		placeAutoUrl(revList, driver,"https://place.map.kakao.com/25815063","174");    //호텔 아마란스 
 //양식x	placeAutoUrl(revList, driver,"https://place.map.kakao.com/8011765","175");     //화랑도체험관광단지
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/345442586","176");   //화이트스테이션 호스텔
 		placeAutoUrl(revList, driver,"https://place.map.kakao.com/11203702","177");	   //황두막
-
-		MakeCsv.createCSV(revList, "reviewerList", "src/main/resources"); //csv파일 생성
+		
+		MakeCsv.createCSV(revList, "ReviewerList", "src/main/resources"); //csv파일 생성
 																	driver.close();}} 
+		
+		

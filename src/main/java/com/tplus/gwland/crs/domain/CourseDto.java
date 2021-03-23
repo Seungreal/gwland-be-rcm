@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class CourseDto {
-	private int crsNum;
+	private long crsNum;
 	private String crsName;
 }

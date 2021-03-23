@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.tplus.gwland.svy.domain.Survey;
-import com.tplus.gwland.svy.domain.SurveyDto;
 import com.tplus.gwland.svy.service.SurveyServiceImpl;
 
 import lombok.RequiredArgsConstructor;

@@ -14,10 +14,9 @@ import com.tplus.gwland.rcm.domain.Recom;
 
 @Entity
 public class Course {
-	@Id @Column(name="crs_num") @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int crsNum;
+	@Id @Column(name="crs_num") @GeneratedValue(strategy = GenerationType.AUTO)
+	private long crsNum;
 	@Column private String crsName;
-	
 	
 	@OneToMany(mappedBy = "course")
 	private List<Recom> RecomList = new ArrayList<>();

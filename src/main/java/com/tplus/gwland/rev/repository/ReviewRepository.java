@@ -2,21 +2,15 @@ package com.tplus.gwland.rev.repository;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+
 import com.tplus.gwland.rev.domain.Review;
 
-
-
-public interface ReviewRepository {
-
-	public int insert(Review review);
-
-	public List<Review> select();
-
-	public Review selectById(String revNum);
-
-	public int update(Review review);
-
-	public int delete(Review review);
-
-
+interface ReviewCustomRepository{
+	public List<Review> findByRevName(String revName);
 }
+
+public interface ReviewRepository extends JpaRepository<Review, Long>, ReviewCustomRepository {
+	
+}
+

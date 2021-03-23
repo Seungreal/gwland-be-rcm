@@ -11,16 +11,23 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import com.tplus.gwland.cli.domain.Client;
 import com.tplus.gwland.pce.domain.Place;
 import com.tplus.gwland.rcm.domain.Recom;
 
-@Entity 
+import lombok.Getter;
 
+@Entity @Getter @Table(name = "review")
 public class Review {
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Id @Column(name="rev_num")private int revNum;
+	
+	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="rev_num")private long revNum;
+	@Column(name="rev_name")private String revName;
+	@Column(name="rev_star")private String revStar;
+	@Column(name="rev_content")private String revContent;
+	@Column(name="rev_date")private String revDate;
 	
 	@OneToMany(mappedBy= "review")
 	private List<Recom> recom = new ArrayList<>();
@@ -32,4 +39,16 @@ public class Review {
 	@ManyToOne
 	@JoinColumn(name="pce_num")
 	private Place place;
-}
+
+	
+
+	
+	}
+	
+	
+
+
+
+
+
+

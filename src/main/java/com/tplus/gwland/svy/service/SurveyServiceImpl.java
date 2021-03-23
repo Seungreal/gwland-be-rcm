@@ -1,12 +1,10 @@
 package com.tplus.gwland.svy.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
 import com.tplus.gwland.svy.domain.Survey;
-import com.tplus.gwland.svy.domain.SurveyDto;
 import com.tplus.gwland.svy.repository.SurveyRepository;
 
 import lombok.RequiredArgsConstructor;
