@@ -1,10 +1,10 @@
-package com.tplus.gwland.sec.repo;
+package com.tplus.gwland.usr.repository;
 
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.tplus.gwland.sec.model.User;
+import com.tplus.gwland.usr.domian.User;
 
 public interface UserRepository extends JpaRepository<User, Integer>{
 	// SELECT * FROM user WHERE username = ?1

@@ -17,8 +17,8 @@ import com.tplus.gwland.sec.config.oauth.provider.KakaoUserInfo;
 import com.tplus.gwland.sec.config.oauth.provider.GoogleUserInfo;
 import com.tplus.gwland.sec.config.oauth.provider.NaverUserInfo;
 import com.tplus.gwland.sec.config.oauth.provider.OAuth2UserInfo;
-import com.tplus.gwland.sec.model.User;
-import com.tplus.gwland.sec.repo.UserRepository;
+import com.tplus.gwland.usr.domian.User;
+import com.tplus.gwland.usr.repository.UserRepository;
 
 
 

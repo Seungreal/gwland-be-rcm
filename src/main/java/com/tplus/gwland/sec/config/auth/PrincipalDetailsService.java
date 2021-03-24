@@ -6,8 +6,8 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
-import com.tplus.gwland.sec.model.User;
-import com.tplus.gwland.sec.repo.UserRepository;
+import com.tplus.gwland.usr.domian.User;
+import com.tplus.gwland.usr.repository.UserRepository;
 
 @Service 
 public class PrincipalDetailsService implements UserDetailsService{

@@ -8,7 +8,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 
-import com.tplus.gwland.sec.model.User;
+import com.tplus.gwland.usr.domian.User;
 
 public class PrincipalDetails implements UserDetails, OAuth2User {
 
