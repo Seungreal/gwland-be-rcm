@@ -52,6 +52,7 @@ public class UserController extends AbstractController<User>{
 	}
 	@GetMapping("/all")
 	public ResponseEntity<List<User>> findAll() {
+		System.out.println("진입");
 		return ResponseEntity.ok(service.findAll());
 	}
 	@GetMapping("/one/{id}")

@@ -62,7 +62,7 @@ public class PrincipalOauth2UserService extends DefaultOAuth2UserService {
 			user = User.builder()
 					.username(oAuth2UserInfo.getUsername())
 					.email(oAuth2UserInfo.getEmail())
-					.role("ROLE_USER")
+					.role("USER")
 					.provider(oAuth2UserInfo.getProvider())
 					.providerId(oAuth2UserInfo.getProviderId())
 					.age(oAuth2UserInfo.getAge())
