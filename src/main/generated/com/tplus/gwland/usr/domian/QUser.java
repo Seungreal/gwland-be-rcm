@@ -7,6 +7,7 @@ import com.querydsl.core.types.dsl.*;
 import com.querydsl.core.types.PathMetadata;
 import javax.annotation.Generated;
 import com.querydsl.core.types.Path;
+import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
@@ -35,7 +36,11 @@ public class QUser extends EntityPathBase<User> {
 
     public final StringPath providerId = createString("providerId");
 
+    public final ListPath<com.tplus.gwland.rev.domain.Review, com.tplus.gwland.rev.domain.QReview> review = this.<com.tplus.gwland.rev.domain.Review, com.tplus.gwland.rev.domain.QReview>createList("review", com.tplus.gwland.rev.domain.Review.class, com.tplus.gwland.rev.domain.QReview.class, PathInits.DIRECT2);
+
     public final StringPath role = createString("role");
+
+    public final ListPath<com.tplus.gwland.svy.domain.Survey, com.tplus.gwland.svy.domain.QSurvey> survey = this.<com.tplus.gwland.svy.domain.Survey, com.tplus.gwland.svy.domain.QSurvey>createList("survey", com.tplus.gwland.svy.domain.Survey.class, com.tplus.gwland.svy.domain.QSurvey.class, PathInits.DIRECT2);
 
     public final StringPath username = createString("username");
 

@@ -22,8 +22,6 @@ public class QReview extends EntityPathBase<Review> {
 
     public static final QReview review = new QReview("review");
 
-    public final com.tplus.gwland.cli.domain.QClient client;
-
     public final com.tplus.gwland.pce.domain.QPlace place;
 
     public final ListPath<com.tplus.gwland.rcm.domain.Recom, com.tplus.gwland.rcm.domain.QRecom> recom = this.<com.tplus.gwland.rcm.domain.Recom, com.tplus.gwland.rcm.domain.QRecom>createList("recom", com.tplus.gwland.rcm.domain.Recom.class, com.tplus.gwland.rcm.domain.QRecom.class, PathInits.DIRECT2);
@@ -37,6 +35,8 @@ public class QReview extends EntityPathBase<Review> {
     public final NumberPath<Long> revNum = createNumber("revNum", Long.class);
 
     public final StringPath revStar = createString("revStar");
+
+    public final com.tplus.gwland.usr.domian.QUser user;
 
     public QReview(String variable) {
         this(Review.class, forVariable(variable), INITS);
@@ -56,8 +56,8 @@ public class QReview extends EntityPathBase<Review> {
 
     public QReview(Class<? extends Review> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.client = inits.isInitialized("client") ? new com.tplus.gwland.cli.domain.QClient(forProperty("client")) : null;
         this.place = inits.isInitialized("place") ? new com.tplus.gwland.pce.domain.QPlace(forProperty("place"), inits.get("place")) : null;
+        this.user = inits.isInitialized("user") ? new com.tplus.gwland.usr.domian.QUser(forProperty("user")) : null;
     }
 
 }

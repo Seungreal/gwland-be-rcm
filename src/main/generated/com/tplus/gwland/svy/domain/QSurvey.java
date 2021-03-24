@@ -24,8 +24,6 @@ public class QSurvey extends EntityPathBase<Survey> {
 
     public final StringPath age = createString("age");
 
-    public final com.tplus.gwland.cli.domain.QClient client;
-
     public final StringPath duration = createString("duration");
 
     public final StringPath gender = createString("gender");
@@ -48,6 +46,8 @@ public class QSurvey extends EntityPathBase<Survey> {
 
     public final StringPath theme3 = createString("theme3");
 
+    public final com.tplus.gwland.usr.domian.QUser user;
+
     public QSurvey(String variable) {
         this(Survey.class, forVariable(variable), INITS);
     }
@@ -66,8 +66,8 @@ public class QSurvey extends EntityPathBase<Survey> {
 
     public QSurvey(Class<? extends Survey> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.client = inits.isInitialized("client") ? new com.tplus.gwland.cli.domain.QClient(forProperty("client")) : null;
         this.place = inits.isInitialized("place") ? new com.tplus.gwland.pce.domain.QPlace(forProperty("place"), inits.get("place")) : null;
+        this.user = inits.isInitialized("user") ? new com.tplus.gwland.usr.domian.QUser(forProperty("user")) : null;
     }
 
 }
