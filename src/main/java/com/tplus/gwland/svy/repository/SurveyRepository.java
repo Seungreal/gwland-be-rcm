@@ -6,7 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import com.tplus.gwland.svy.domain.Survey;
 
+interface SurveyCustomRepository {
+
+}
 @Repository
-public interface SurveyRepository extends JpaRepository<Survey, Integer>{
+public interface SurveyRepository extends JpaRepository<Survey, Integer>,SurveyCustomRepository{
 
 }
