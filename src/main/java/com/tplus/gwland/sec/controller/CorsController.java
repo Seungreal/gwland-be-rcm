@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @CrossOrigin(origins = "http://localhost:3000")
 @Controller
 public class CorsController {
-	@GetMapping({ "", "/" })
+	@GetMapping("/")
 	public String redirect(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse)
 			throws IOException {
 		String redirectUrl = "redirect:http://localhost:3000";

@@ -13,9 +13,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
-import com.tplus.gwland.cli.domain.Client;
 import com.tplus.gwland.pce.domain.Place;
 import com.tplus.gwland.rcm.domain.Recom;
+import com.tplus.gwland.usr.domian.User;
 
 import lombok.Getter;
 
@@ -33,8 +33,8 @@ public class Review {
 	private List<Recom> recom = new ArrayList<>();
 	
 	@ManyToOne
-	@JoinColumn(name="cli_num")
-	private Client client;
+	@JoinColumn(name="num")
+	private User user;
 	
 	@ManyToOne
 	@JoinColumn(name="pce_num")
