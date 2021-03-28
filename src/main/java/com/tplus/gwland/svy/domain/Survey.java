@@ -15,6 +15,7 @@ import javax.persistence.OneToMany;
 
 import com.tplus.gwland.pce.domain.Place;
 import com.tplus.gwland.rcm.domain.Recom;
+import com.tplus.gwland.usr.domian.User;
 
 import lombok.Getter;
 
@@ -43,7 +44,7 @@ public class Survey {
 	private String theme3;
 	
 	@ManyToOne
-	@JoinColumn(name="pce_num")
+	@JoinColumn(name="contentid")
 	private Place place;
 	
 	@OneToMany(mappedBy = "survey",fetch = FetchType.EAGER)

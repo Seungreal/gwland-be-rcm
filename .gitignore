@@ -35,8 +35,12 @@ out/
 /.nb-gradle/
 
 ### VS Code ###
+<<<<<<< HEAD
 .vscode/
 <<<<<<< HEAD
 =======
 
 >>>>>>> develop-psh/master
+=======
+.vscode/
+>>>>>>> develop-gwg/master

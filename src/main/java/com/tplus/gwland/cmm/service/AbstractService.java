@@ -3,6 +3,8 @@ package com.tplus.gwland.cmm.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.tplus.gwland.pce.domain.Place;
+
 public abstract class AbstractService<T> {
 	public abstract long save(T t);
 	public abstract long delete(T t);

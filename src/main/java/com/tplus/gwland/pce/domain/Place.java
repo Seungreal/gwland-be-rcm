@@ -5,23 +5,22 @@ import java.util.List;
 
 import javax.persistence.*;
 
-import com.tplus.gwland.cat.domain.Category;
+import com.tplus.gwland.dtl.domain.Detail;
 import com.tplus.gwland.rev.domain.Review;
 
 import lombok.Getter;
+import lombok.ToString;
 
-@Entity @Getter
+@Entity @Getter @ToString
 public class Place {
 	@Id 
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="pce_num") private long pceNum;
+	@Column(name="contentid") private long contentid;
 	@Column(name="addr1") private String addr1;
 	@Column(name="addr2") private String addr2;
 	@Column(name="areacode") private String areacode;
 	@Column(name="cat1") private String cat1;
 	@Column(name="cat2") private String cat2;
 	@Column(name="cat3") private String cat3;
-	@Column(name="contentid") private String contentid;
 	@Column(name="contenttypeid") private String contenttypeid;
 	@Column(name="createdtime") private String createdtime;
 	@Column(name="firstimage") private String firstimage;
@@ -36,10 +35,11 @@ public class Place {
 	@Column(name="title") private String title;
 	@Column(name="zipcode") private String zipcode;
 	
-	@ManyToOne
-	@JoinColumn(name="cat_num")
-	private Category category;
+	@OneToOne(mappedBy = "place")
+	private Detail detail;
 	
-	@OneToMany(mappedBy = "place")
-	private List<Review> reviewList = new ArrayList<>();
+	//@OneToMany(mappedBy = "place")
+	//private List<Review> reviewList = new ArrayList<>();
+	
+	public Place() {};
 }

@@ -6,7 +6,7 @@ plugins {
 	id 'com.ewerk.gradle.plugins.querydsl' version '1.0.10'
 }
 
-group = 'com.tplus'
+group = 'com.tplus.gwland'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -52,4 +52,8 @@ compileQuerydsl{options.annotationProcessorPath = configurations.querydsl}
 configurations { querydsl.extendsFrom compileClasspath}
 sourceSets {
     main { java {
+<<<<<<< HEAD
             srcDirs = ['src/main/java', querydslSrcDir]}}}
+=======
+            srcDirs = ['src/main/java', querydslSrcDir]}}}
+>>>>>>> develop-gwg/master
