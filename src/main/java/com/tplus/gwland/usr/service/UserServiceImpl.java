@@ -25,7 +25,7 @@ public class UserServiceImpl extends AbstractService<User> implements UserServic
 
 	@Override
 	public long delete(User t) {
-		return (getOne(t.getNum()) == null) ? 1 : 0;}
+		repo.delete(t); return (existsById(t.getNum())) ? 0 : 1;}
 	
 	@Override
 	public long count() {

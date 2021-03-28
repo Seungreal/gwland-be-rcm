@@ -43,12 +43,6 @@ public class Survey {
 	@Column
 	private String theme3;
 	
-	@ManyToOne
-	@JoinColumn(name="pce_num")
-	private Place place;
-	@ManyToOne
-	@JoinColumn(name="num")
-	private User user;
 	
 	@OneToMany(mappedBy = "survey",fetch = FetchType.EAGER)
 	private List<Recom> RecomList = new ArrayList<>();

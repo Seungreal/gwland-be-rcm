@@ -42,8 +42,5 @@ public class User {
 	
 	@OneToMany(mappedBy = "user")
     private List<Review> review = new ArrayList<>();
-	
-	@OneToMany(mappedBy = "user")
-    private List<Survey> survey = new ArrayList<>();
 
 }
