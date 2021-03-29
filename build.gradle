@@ -52,8 +52,4 @@ compileQuerydsl{options.annotationProcessorPath = configurations.querydsl}
 configurations { querydsl.extendsFrom compileClasspath}
 sourceSets {
     main { java {
-<<<<<<< HEAD
             srcDirs = ['src/main/java', querydslSrcDir]}}}
-=======
-            srcDirs = ['src/main/java', querydslSrcDir]}}}
->>>>>>> develop-gwg/master
